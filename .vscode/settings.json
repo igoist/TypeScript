@@ -9,7 +9,7 @@
     "editor.formatOnPaste": false
   },
   "[typescript]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.formatOnPaste": false
   },
   "[typescriptreact]": {
