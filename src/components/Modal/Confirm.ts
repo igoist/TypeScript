@@ -1,8 +1,6 @@
 import { ModalProps, Modal } from './Modal';
 
-export interface ConfirmProps extends ModalProps {
-  // close: () => void;
-}
+export interface ConfirmProps extends ModalProps {}
 
 function Confirm(config: ConfirmProps) {
   let div = document.createElement('div');
@@ -30,5 +28,6 @@ function Confirm(config: ConfirmProps) {
   config.close = close;
   render(config);
 }
+
 export default Confirm;
 export { Confirm };

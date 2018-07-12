@@ -83,7 +83,6 @@
   text-align: center;
   text-transform: none;
   text-rendering: auto;
-  vertical-align: baseline;
 }
 
 .modal-close-x:before {
@@ -116,7 +115,6 @@
 
 .confirm-body {
   & > .icon {
-    display: inline-block;
     float: left;
     margin-right: 16px;
     line-height: 1;

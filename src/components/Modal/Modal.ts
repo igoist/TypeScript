@@ -10,15 +10,15 @@ export interface ModalProps {
   content: string;
   okText?: string;
   cancelText?: string;
-  extraNode?: string;
   onOk?: (e?: MouseEvent) => void;
   onCancel?: (e?: MouseEvent) => void;
   close?: () => void;
+  extraNode?: string;
+  extraFuncOnDidMount?: () => void;
 }
 
 class Modal {
   props: ModalProps;
-  // render: () => void;
   mask: HTMLElement;
 
   constructor(props: ModalProps) {
@@ -38,13 +38,12 @@ class Modal {
     this.mask.classList.add('fade-appear');
     this.mask.classList.add('fade-appear-active');
 
-    // if (this.props.extraFunc) {
-    //   this.props.extraFunc();
-    // }
+    if (this.props.extraFuncOnDidMount) {
+      this.props.extraFuncOnDidMount();
+    }
   }
 
   handleOK = (e: MouseEvent) => {
-    console.log(this.props);
     const { onOk } = this.props;
 
     if (onOk) {
@@ -56,18 +55,16 @@ class Modal {
 
   handleCancel = (e: MouseEvent) => {
     const { close } = this.props;
-    console.log(e, close);
 
     this.mask.classList.add('fade-leave');
     this.mask.classList.add('fade-leave-active');
-    let mask = this.mask;
 
     let handleOut = () => {
-      mask.classList.remove('fade-leave');
-      mask.classList.remove('fade-leave-active');
+      this.mask.classList.remove('fade-leave');
+      this.mask.classList.remove('fade-leave-active');
 
       document.body.style.overflow = null;
-      mask.removeEventListener('animationend', handleOut);
+      this.mask.removeEventListener('animationend', handleOut);
       close();
     };
 
@@ -77,8 +74,6 @@ class Modal {
   }
 
   render() {
-    console.log('here', this.props);
-
     const { title, content, okText, cancelText, extraNode } = this.props;
 
     let tmpNode: any =  htmlToElement(`
@@ -103,7 +98,7 @@ class Modal {
                       <button class='btn bounce cancel' style='display: ${ cancelText ? '' : 'none' }; margin-right: 12px'>
                         <span>${ cancelText }</span>
                       </button>
-                      <button class='btn bounce theme-red-1 submit' style='display: ${ okText ? '' : 'none' };'>
+                      <button class='btn bounce theme-red-1 ok' style='display: ${ okText ? '' : 'none' };'>
                         <span>${ okText }</span>
                       </button>
                     </div>
@@ -119,7 +114,7 @@ class Modal {
     this.mask = tmpNode.querySelector('.modal-mask');
     tmpNode.querySelector('.modal-close').addEventListener('click', this.handleCancel, false);
     tmpNode.querySelector('.btn.cancel').addEventListener('click', this.handleCancel, false);
-    tmpNode.querySelector('.btn.submit').addEventListener('click', this.handleOK, false);
+    tmpNode.querySelector('.btn.ok').addEventListener('click', this.handleOK, false);
 
     return tmpNode;
   }
