@@ -1,9 +1,9 @@
 export const theme = (type:string) => {
   switch (type) {
     case 'pink':
-      return 'f49cec';
+      return '#f49cec';
     case 'green':
-      return '#0f0';
+      return 'green';
     case 'blue':
       return '#149cec';
     case '':

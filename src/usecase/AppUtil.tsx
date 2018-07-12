@@ -10,7 +10,6 @@ const handleClick = () => {
     okText: '确认',
     cancelText: '取消',
     onOk: () => {
-      console.log('onOK');
       log({
         title: 'Modal',
         text: 'onOK',
@@ -18,7 +17,6 @@ const handleClick = () => {
       });
     },
     onCancel: () => {
-      console.log('onCancel');
       log({
         title: 'Modal',
         text: 'onCancel',

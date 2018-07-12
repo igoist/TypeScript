@@ -24,12 +24,12 @@ ReactDOM.render(
         </li>
         <li>
           <Link to={ currentUrl + 'util' }>
-            Rendering with React
+            Util: log
           </Link>
         </li>
         <li>
           <Link to={ currentUrl + 'b' }>
-            Rendering with React
+            Hello: Rendering with React
           </Link>
         </li>
       </ul>

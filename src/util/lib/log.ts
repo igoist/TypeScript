@@ -17,7 +17,7 @@ export const log = (config: LogProps) => {
     ${ titleColor ? 'color:' + theme(titleColor) + ';' : 'color:' + theme('') + ';' }`,
     '',
     `${ textBg ? 'background:' + textBg + ';' : '' }
-    ${ textColor ? 'color:' + textColor + ';' : '' }`
+    ${ textColor ? 'color:' + theme(textColor) + ';' : '' }`
   );
 };
 
