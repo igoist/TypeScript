@@ -1,9 +1,6 @@
-function htmlToElement(html: string) {
-  let template = document.createElement('template');
-  html = html.trim();
-  template.innerHTML = html;
-  return template.content.firstChild;
-}
+import { dom } from '../../util/';
+
+const { htmlToElement } = dom;
 
 export interface ModalProps {
   title: string;
