@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Confirm } from '../components/Modal/';
 
 
-
 const handleClick = () => {
   Confirm({
     title: '温馨提醒',
