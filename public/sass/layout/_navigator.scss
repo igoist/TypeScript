@@ -1,3 +1,5 @@
+$menuItemSize: 32px;
+
 .siteMenu {
   position: fixed;
   bottom: 0;
@@ -6,6 +8,13 @@
   overflow: scroll;
   transition: height $anime-duration-m ease-in-out;
   box-shadow: 0 -1px 3px rgba(26, 26, 26, 0.1);
+  text-align: center;
+
+  li {
+    height: $menuItemSize;
+    line-height: $menuItemSize;
+    font-size: 16px;
+  }
 }
 
 .menuBtn {
@@ -40,7 +49,7 @@
 
 .nav-opened {
   .siteMenu {
-    height: 50px;
+    height: $menuItemSize * 3;
   }
 
   .menuBtn {
