@@ -1,0 +1,61 @@
+.siteMenu {
+  position: fixed;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  overflow: scroll;
+  transition: height $anime-duration-m ease-in-out;
+  box-shadow: 0 -1px 3px rgba(26, 26, 26, 0.1);
+}
+
+.menuBtn {
+  width: 34px;
+  height: 34px;
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: block;
+
+  .bar {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 7px;
+    border-radius: 10px;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    transition: all $anime-duration-m ease-in-out;
+
+    &:first-child {
+      transform: translateY(-6px);
+    }
+
+    &:last-child {
+      transform: translateY(6px);
+    }
+  }
+}
+
+.nav-opened {
+  .siteMenu {
+    height: 50px;
+  }
+
+  .menuBtn {
+    .bar {
+      &:first-child {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

@@ -14,31 +14,40 @@ import AppUtil from './usecase/AppUtil';
 
 const currentUrl = '/~egoist/Apps/TS/dist/';
 
+const handleMenuBtnClick = () => {
+  document.body.classList.toggle('nav-opened');
+};
+
 ReactDOM.render(
   <Router>
     <div>
-      <ul>
+      <ul className='siteMenu'>
         <li>
           <Link to={ currentUrl }>
-            Home
+            <button>Home</button>
           </Link>
         </li>
         <li>
           <Link to={ currentUrl + 'message' }>
-            Components: Message
+            <button>Components: Message</button>
           </Link>
         </li>
         <li>
           <Link to={ currentUrl + 'util' }>
-            Util: log
+            <button>Util: log</button>
           </Link>
         </li>
         <li>
           <Link to={ currentUrl + 'b' }>
-            Hello: Rendering with React
+            <button>Hello: Rendering with React</button>
           </Link>
         </li>
       </ul>
+      <a className='menuBtn' onClick={ handleMenuBtnClick }>
+        <del className='bar'></del>
+        <del className='bar'></del>
+        <del className='bar'></del>
+      </a>
       <Route exact path={ currentUrl } component={ AppModal } />
       <Route path={ currentUrl + 'message' } component={ AppMessage } />
       <Route path={ currentUrl + 'util' } component={ AppUtil } />
