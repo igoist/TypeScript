@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import AppHello from './usecase/AppHello';
+import AppLoading from './usecase/AppLoading';
 import AppModal from './usecase/AppModal';
 import AppMessage from './usecase/AppMessage';
 import AppUtil from './usecase/AppUtil';
@@ -22,6 +23,11 @@ const routerArr = [
     path: currentUrl + 'message',
     title: 'Components: Message',
     component: AppMessage
+  },
+  {
+    path: currentUrl + 'loading',
+    title: 'Components: Loading',
+    component: AppLoading
   },
   {
     path: currentUrl + 'log',
