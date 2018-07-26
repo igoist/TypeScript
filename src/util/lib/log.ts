@@ -9,7 +9,7 @@ interface LogProps {
   textColor?: string;
 }
 
-export const log = (config: LogProps) => {
+export const l = (config: LogProps) => {
   const { title, titleBg, titleColor, text, textBg, textColor } = config;
   console.log(
     `%c${ title }%c: %c${ text }`,
@@ -21,4 +21,16 @@ export const log = (config: LogProps) => {
   );
 };
 
-export default log;
+export const dev = (config: LogProps) => {
+  if (process.env.NODE_ENV === 'development') {
+    l(config);
+  }
+}
+
+export const prod = (config: LogProps) => {
+  if (process.env.NODE_ENV === 'production') {
+    l(config);
+  }
+}
+
+export default l;

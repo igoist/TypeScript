@@ -1,5 +1,5 @@
-import dom from './lib/dom';
-import log from './lib/log';
+import * as dom from './lib/dom';
+import * as log from './lib/log';
 
 
 export {

@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Confirm } from '../components/Modal/';
 import { log } from '../util/';
 
+const { l } = log;
+
 
 const handleClick = () => {
   Confirm({
@@ -10,14 +12,14 @@ const handleClick = () => {
     okText: '确认',
     cancelText: '取消',
     onOk: () => {
-      log({
+      l({
         title: 'Modal',
         text: 'onOK',
         textColor: 'green',
       });
     },
     onCancel: () => {
-      log({
+      l({
         title: 'Modal',
         text: 'onCancel',
         textColor: 'pink',
@@ -25,7 +27,7 @@ const handleClick = () => {
     },
     extraNode: `<div style='width: 100%; height: 62px; background-color: #67aaff;'></div>`,
     extraFuncOnDidMount: () => {
-      log({
+      l({
         title: 'Modal',
         // titleBg: '',
         // titleColor: '#149cec',
