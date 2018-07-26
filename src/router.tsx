@@ -11,7 +11,8 @@ import AppModal from './usecase/AppModal';
 import AppMessage from './usecase/AppMessage';
 import AppUtil from './usecase/AppUtil';
 
-const currentUrl = '/~egoist/Apps/TS/dist/';
+// const currentUrl = '/~egoist/Apps/TS/dist/';
+const currentUrl = '/';
 
 const routerArr = [
   {

@@ -4,7 +4,7 @@
   "description": "ts, tsx exercise",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "open": "open http://localhost/~egoist/Apps/TS/dist/",
     "start": "webpack --config webpack.dev.js --watch"
   },
@@ -36,6 +36,7 @@
     "style-loader": "^0.20.2",
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.5",
     "webpack-merge": "^4.1.3"
   }
 }
