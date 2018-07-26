@@ -1,6 +1,7 @@
-import { dom } from '../../util/';
+import { dom, log } from '../../util/';
 
 const { htmlToElement } = dom;
+const { dev } = log;
 
 /**
  * 由于一开始就考虑到多文件上传，于是用到了计数器 counter
@@ -25,7 +26,12 @@ export default class Loading {
 
   loadingRequest() {
     this.counter += 1;
-    console.log(this.counter);
+
+    dev({
+      title: 'loadingRequest',
+      text: '' + this.counter
+    });
+
     this.checkRender();
   }
 
@@ -34,20 +40,30 @@ export default class Loading {
       this.counter -= 1;
     }
 
-    if (this.counter === 0) {
+    if (this.domNode && this.counter === 0) {
       document.body.classList.remove('body-loading');
       this.domNode.parentNode.removeChild(this.domNode);
       this.domNode = null;
     }
-    console.log(this.counter);
+
+    dev({
+      title: 'finishLoadingRequest',
+      text: '' + this.counter
+    });
   }
 
   checkRender() {
     if (!this.domNode) {
-      console.log('no dom');
       this.render();
+      dev({
+        title: 'checkRender',
+        text: 'no dom'
+      });
     } else {
-      console.log('yo dom');
+      dev({
+        title: 'checkRender',
+        text: 'yo dom'
+      });
     }
   }
 
