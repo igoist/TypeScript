@@ -1,15 +1,11 @@
 /* eslint: disable */
 const path = require('path');
-const webpack = require('webpack');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const publicPath = '/';
 const srcPath = './src';
 
-
 const webpackConfig = {
-  mode: 'development',
-  devtool: 'inline-source-map',
   entry: {
     index: [
       // 'react-hot-loader/patch',
@@ -22,7 +18,6 @@ const webpackConfig = {
     publicPath
   },
   resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: ['.ts', '.tsx', '.js']
   },
   module: {
@@ -32,14 +27,9 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, './public/index.html')
-    // }),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production')
-    //   }
-    // })
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public/index.html')
+    })
   ]
 };
 

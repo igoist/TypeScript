@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "ts, tsx exercise",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "dev": "webpack",
     "open": "open http://localhost/~egoist/Apps/TS/dist/",
-    "start": "webpack --watch"
+    "start": "webpack --config webpack.dev.js --watch"
   },
   "repository": {
     "type": "git",
@@ -29,12 +29,13 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.3.1",
     "ts-loader": "^4.4.2",
-    "typescript": "^2.9.2",
-    "webpack": "^4.12.2"
+    "typescript": "^2.9.2"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.20.2",
-    "webpack-cli": "^3.0.8"
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-merge": "^4.1.3"
   }
 }
