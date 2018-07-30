@@ -1,4 +1,5 @@
 import { dom, log } from '../../util/';
+import Spin from '../Spin';
 
 const { htmlToElement } = dom;
 const { dev } = log;
@@ -11,7 +12,7 @@ const { dev } = log;
 
 export interface LoadingProps {
   text: string;
-  // type?: string;
+  type: number;
 }
 
 export default class Loading {
@@ -28,7 +29,7 @@ export default class Loading {
     this.counter += 1;
 
     dev({
-      title: 'loadingRequest',
+      title: 'Loading - loadingRequest',
       text: '' + this.counter
     });
 
@@ -47,7 +48,7 @@ export default class Loading {
     }
 
     dev({
-      title: 'finishLoadingRequest',
+      title: 'Loading - finishLoadingRequest',
       text: '' + this.counter
     });
   }
@@ -56,33 +57,29 @@ export default class Loading {
     if (!this.domNode) {
       this.render();
       dev({
-        title: 'checkRender',
+        title: 'Loading - checkRender',
         text: 'no dom'
       });
     } else {
       dev({
-        title: 'checkRender',
+        title: 'Loading - checkRender',
         text: 'yo dom'
       });
     }
   }
 
   render() {
-    const { text } = this.props;
+    let spin = new Spin(this.props);
 
     let tmpNode: any = htmlToElement(`
-      <div class='loading'>
-        <div class='bounceball'></div>
-        <div class='text-loading'>${ text }</div>
+      <div class='wrap-loading'>
+        ${ spin.renderToString() }
       </div>
     `);
 
-    let div = document.createElement('div');
-    div.classList.add('wrap-loading');
-    div.appendChild(tmpNode);
-    document.body.appendChild(div);
+    document.body.appendChild(tmpNode);
     document.body.classList.add('body-loading');
 
-    this.domNode = div;
+    this.domNode = tmpNode;
   }
 }
