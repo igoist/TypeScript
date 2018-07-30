@@ -7,6 +7,7 @@ import {
 
 import AppHello from './usecase/AppHello';
 import AppLoading from './usecase/AppLoading';
+import AppSpin from './usecase/AppSpin';
 import AppModal from './usecase/AppModal';
 import AppMessage from './usecase/AppMessage';
 import AppUtil from './usecase/AppUtil';
@@ -29,6 +30,11 @@ const routerArr = [
     path: currentUrl + 'loading',
     title: 'Components: Loading',
     component: AppLoading
+  },
+  {
+    path: currentUrl + 'spin',
+    title: 'Components: Spin',
+    component: AppSpin
   },
   {
     path: currentUrl + 'log',

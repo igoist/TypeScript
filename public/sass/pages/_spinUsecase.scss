@@ -1,0 +1,29 @@
+.item-wrap-spin {
+  position: relative;
+  height: 200px;
+}
+
+.item-inner-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .spin {
+    .spin-animation {
+      &:before {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &:hover {
+    .spin {
+      .spin-animation {
+        &:before {
+          animation-play-state: running;
+        }
+      }
+    }
+  }
+}
