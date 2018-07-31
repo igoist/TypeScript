@@ -29,15 +29,24 @@ class Spin {
     switch(type) {
       case 0:
         return `
-          <div class='spin loading'>
-            <div class='spin-animation bounceball'></div>
-          <div class='spin-text'>${ text }</div>
+          <div class='spin loading bounceball'>
+            <div class='spin-animation'></div>
+            <div class='spin-text'>${ text }</div>
           </div>
         `;
       case 1:
         return `
-          <div class='spin loading'>
-            <div class='spin-animation livelogo'></div>
+          <div class='spin loading livelogo'>
+            <div class='spin-animation'></div>
+          </div>
+        `;
+      case 2:
+        return `
+          <div class='spin loading type02'>
+            <div class='spin-animation'>
+              <div class='arc'></div>
+            </div>
+            <div class='spin-text'>${ text }</div>
           </div>
         `;
     }

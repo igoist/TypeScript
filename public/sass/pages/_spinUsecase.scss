@@ -11,6 +11,8 @@
 
   .spin {
     .spin-animation {
+      animation-play-state: paused;
+
       &:before {
         animation-play-state: paused;
       }
@@ -20,6 +22,8 @@
   &:hover {
     .spin {
       .spin-animation {
+        animation-play-state: running;
+
         &:before {
           animation-play-state: running;
         }

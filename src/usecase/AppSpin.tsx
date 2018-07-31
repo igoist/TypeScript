@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { Spin } from '../components/Spin';
-import { spawn } from 'child_process';
 
 let rows: any[] = [];
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 3; i++) {
   let spin = new Spin({
-    text: `Spin demo ${ i }`,
+    text: `Loading ...`, // Spin demo ${ i }
     type: i
   });
   let div = document.createElement('div');
