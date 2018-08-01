@@ -11,6 +11,7 @@ const { dev } = log;
  */
 
 export interface LoadingProps {
+  target?: HTMLElement;
   text: string;
   type: number;
 }
@@ -69,6 +70,7 @@ export default class Loading {
   }
 
   render() {
+    const { target } = this.props;
     let spin = new Spin(this.props);
 
     let tmpNode: any = htmlToElement(`
@@ -77,7 +79,11 @@ export default class Loading {
       </div>
     `);
 
-    document.body.appendChild(tmpNode);
+    if (target) {
+      target.appendChild(tmpNode);
+    } else {
+      document.body.appendChild(tmpNode);
+    }
     document.body.classList.add('body-loading');
 
     this.domNode = tmpNode;
